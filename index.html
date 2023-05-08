@@ -37,9 +37,7 @@
 						### Problemi e soluzioni
 
 						- Svc (git)
-						- Change management
 						- CI/CD
-						- Configuration management
 						- Containerization
 						- Container orchestration
 						- Monitoring & logging
@@ -51,7 +49,7 @@
 				<section data-markdown="">
 					<script type="text/template">
 						### Cominciamo dal codice
-						- Riproducibilità: devo salvare il sorgente
+						- Riproducibilità: bisogna salvare il sorgente
 						- Controllo: ...magari in maniera analizzabile
 						- Collaborazione: ...magari in modo da poterci lavorare in gruppo
 					</script>
@@ -86,20 +84,43 @@
 						<div style="text-align:left;">
 							I test sono una prima linea di difesa, ma:
 							<ul>
-								<li>Riesco a testare tutto?
+								<li>Sono siamo sicuri che vengano fatti?</li>
+								<li>Riusciamo a testare tutto?
 									<ul>
 										<li>Test di unità</li>
 										<li>Test di integrazione</li>
 									</ul>
 								</li>
-								<li style="text-decoration: underline;">Posso minimizzare il disservizio?</li>
+								<li style="text-decoration: underline;">Possiamo minimizzare il disservizio?</li>
 							</ul>
 						</div>
 					</div>
 				</section>
+				<section>
+					<h3>Test automatici</h3>
+					<img src="img/automated_test.png" alt="test automatici">
+					<p>Almeno almeno siamo sicuri che vengano fatti</p>
+				</section>
 			</section>
 			<section id="distribuire-codice">
-
+				<section>
+					<h3>Problema</h3>
+					<h4>come minimizziamo il disservizio</h4>
+				</section>
+				<section>
+					<h3>3-tier architecture</h3>
+					<img src="img/change_management.png" alt="3-tier architecture">
+				</section>
+				<section>
+					<h3>CI/CD</h3>
+					<div id="row" style="display:flex">
+						<img src="img/ci_cd_workflow.webp" alt="flusso di rilascio automatico" style="width:40%;margin:1em">
+						<div style="text-align:left">
+							<p>È un sacco di lavoro: meglio automatizzare!</p>
+							<p>Si parla di Continuous Integration e Delivery/Deployment</p>
+						</div>
+					</div>
+				</section>
 			</section>
 		</div>
 	</div>
