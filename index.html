@@ -23,7 +23,7 @@
 				<section>Chi sono</section>
 			</section>
 			<section id="roadmap">
-				<section data-markdown>
+				<section data-markdown="">
 					<script type="text/template">
 						### Obiettivi di base
 
@@ -32,7 +32,7 @@
 						- Collaborazione
 					</script>
 				</section>
-				<section data-markdown>
+				<section data-markdown="">
 					<script type="text/template">
 						### Problemi e soluzioni
 
@@ -48,17 +48,58 @@
 				</section>
 			</section>
 			<section id="scrivere-codice">
-				<section data-markdown>
+				<section data-markdown="">
 					<script type="text/template">
 						### Cominciamo dal codice
-						- Riproducibilità: salvare il sorgente
+						- Riproducibilità: devo salvare il sorgente
 						- Controllo: ...magari in maniera analizzabile
 						- Collaborazione: ...magari in modo da poterci lavorare in gruppo
 					</script>
 				</section>
 				<section>
-					<img src="img/best_ways_to_save_your_code.webp" alt="best ways to save your code" style="height:15em"/>
+					<h4>Alcuni metodi sono migliori di altri</h4>
+					<img src="img/best_ways_to_save_your_code.webp" alt="best ways to save your code"
+						style="height:14em">
 				</section>
+				<section>
+					<img src="img/git_branches.png" alt="git branches collaboration">
+					<ul>
+						<li>Il codice è salvato in formato analizzabile</li>
+						<li>Si può ricostruire la storia completa del codice</li>
+						<li>È (relativamente) semplice collaborare</li>
+					</ul>
+				</section>
+				<section>
+					<p>...relativamente...</p>
+					<img src="img/useless_code.jpeg" alt="when you delete a useless block of code" style="height:13em">
+				</section>
+				<section>
+					<p>Magari il codice compila, ma siamo davvero sicuri di ciò che fa a runtime?</p>
+				</section>
+				<section>
+					<p>...SICURI?</p>
+					<img src="img/developer_hanging.jpg" alt="thank you stackoverflow" style="height:13em">
+				</section>
+				<section>
+					<div id="row" style="display:flex">
+						<img src="img/test_useless_code.jpeg" alt="tests are our harness" style="width:40%;margin:1em">
+						<div style="text-align:left;">
+							I test sono una prima linea di difesa, ma:
+							<ul>
+								<li>Riesco a testare tutto?
+									<ul>
+										<li>Test di unità</li>
+										<li>Test di integrazione</li>
+									</ul>
+								</li>
+								<li style="text-decoration: underline;">Posso minimizzare il disservizio?</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
+			<section id="distribuire-codice">
+
 			</section>
 		</div>
 	</div>
