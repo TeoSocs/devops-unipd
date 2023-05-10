@@ -21,8 +21,6 @@
 			<section id="introduction">
 				<section>TITOLO</section>
 				<section>Chi sono</section>
-			</section>
-			<section id="roadmap">
 				<section data-markdown="">
 					<script type="text/template">
 						### Obiettivi di base
@@ -114,7 +112,8 @@
 				<section>
 					<h3>CI/CD</h3>
 					<div class="row" style="display:flex">
-						<img src="img/ci_cd_workflow.webp" alt="flusso di rilascio automatico" style="width:40%;margin:1em">
+						<img src="img/ci_cd_workflow.webp" alt="flusso di rilascio automatico"
+							style="width:40%;margin:1em">
 						<div style="text-align:left">
 							<p>È un sacco di lavoro: meglio automatizzare!</p>
 							<p>Si parla di Continuous Integration e Delivery/Deployment</p>
@@ -147,7 +146,8 @@
 				</section>
 				<section>
 					<div class="row" style="display: flex;">
-						<img src="img/residence.webp" alt="complesso residenziale" style="max-width:30%; object-fit:cover;margin:1em">
+						<img src="img/residence.webp" alt="complesso residenziale"
+							style="max-width:30%; object-fit:cover;margin:1em">
 						<div style="text-align: left;">Immaginate di dover:
 							<ul>
 								<li>costruire da zero un complesso residenziale</li>
@@ -164,10 +164,99 @@
 						<img src="img/docker.png" alt="sistema a container" style="width: 50%;">
 					</div>
 				</section>
+				<section>
+					<h3>Container 101</h3>
+					<ul>
+						<li>Unità isolate</li>
+						<li>Comprendono le dipendenze a loro necessarie</li>
+						<li>Possono "bucare" l'isolamento solo tramite aperture ben definite</li>
+						<li>Sono creati a partire da file</li>
+						<li>Non sono (solo) docker</li>
+					</ul>
+				</section>
+				<section data-markdown="">
+					<script type="text/template">
+						### Esempio di docker run
+						```bash
+						docker run --name pandora_community --rm \
+							-p 8085:80 \
+							-p 41121:41121 \
+							-p 162:162 \
+							-e DBHOST=mysqlhost.local \
+							-e DBNAME=pandora \
+							-e DBUSER=pandora \
+							-e DBPASS=pandora \
+							-e DBPORT=3306 \
+							-e SLEEP=5 \
+							-e RETRIES=3 \
+							-e INSTANCE_NAME=pandora_community \
+							-ti rameijeiras/pandorafms-community:740
+						```
+					</script>
+				</section>
+				<section data-auto-animate>
+					<h3 data-id="code-title">Esempio di Dockerfile</h3>
+					<pre data-id="code-animation"><code class="hljs Dockerfile" data-trim data-line-numbers="|3|9,14-15,17-19|12|28|31"><script type="text/template">
+						# from base image node
+						ARG NODE_VERSION=8.11-slim
+						FROM node:$NODE_VERSION
+
+						LABEL "about"="This is just am example of LABEL"
+
+						ENV workdirectory /home/bhargav
+
+						RUN mkdir /dockerexample
+						VOLUME /dockerexample
+
+						COPY package.json .
+
+						RUN ls -ll &&\
+							npm install
+
+						RUN useradd bhargav &&\
+							mkdir -p $workdirectory &&\
+							chown bhargav $workdirectory
+							
+						USER bhargav
+						WORKDIR $workdirectory
+
+						ADD index.js .
+
+						RUN ls -l
+
+						EXPOSE 3070
+
+						# command executable and version
+						ENTRYPOINT ["node"]
+					</script></code></pre>
+				</section>
+				<section data-markdown="">
+					<script type="text/template">
+						### Soliti obiettivi
+
+						- Riproducibilità
+							- L'immagine è immutabile, posso ricreare il container in qualsiasi momento
+						- Controllo
+							- È isolato, tutto ciò che lo riguarda è scritto tra Dockerfile e docker run
+						- Collaborazione
+							- Si può trasferire facilmente: se funziona sulla mia macchina funziona anche sulla vostra
+					</script>
+				</section>
+				<section data-markdown="">
+					<script type="text/template">
+						### Anything as a code
+
+						- Approccio dichiarativo: scrivo tutto come file
+						- Molto simile all'idea dei linguaggi funzionali
+							- Non è applicabile a tutto, ma quasi
+						- Sintesi dei nostri obiettivi iniziali
+						- I container sono il primo passo, non certo l'ultimo
+					</script>
+				</section>
 			</section>
-		<!--	- Container orchestration
-				- Monitoring & logging
-				- Moving on: IaC	-->
+			<!--	- Container orchestration
+					- Monitoring & logging
+					- Moving on: IaC	-->
 			<section id="conclusions">
 				<img src="img/so_much.png" alt="so much to learn">
 			</section>
