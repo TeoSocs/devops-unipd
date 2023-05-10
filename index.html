@@ -254,8 +254,34 @@
 					</script>
 				</section>
 			</section>
-			<!--	- Container orchestration
-					- Monitoring & logging
+			<section>
+				<section data-markdown="">
+					<script type="text/template">
+						### I problemi dei container "da soli"
+
+						Confronto con Application Server maturi
+						- Update: devo spegnere e poi ricreare -> Disservizio
+						- High Availability: una sola "replica" e SPoF
+						- No RBAC: un utente può fare o tutto o niente
+					</script>
+				</section>
+				<section>
+					<h3>Serve un orchestratore</h3>
+					<img src="img/docker_compose.png" alt="docker-compose">
+					<p>...e qui comincia la lotta per la sopravvivenza</p>
+				</section>
+				<section>
+					<img src="img/compose_swarm.webp" alt="evoluzione verso swarm" style="object-fit:cover; height:10em">
+				</section>
+				<section>
+					<img src="img/swarm_kubernetes.png" alt="fino a kubernetes" style="object-fit:contain; height: 8em;">
+				</section>
+				<section>
+					<img src="img/kubernetes_share.png" alt="abbiamo un vincitore">
+					<p>...in realtà abbiamo un vincitore abbastanza chiaro. (2021)<br>
+				</section>
+			</section>
+			<!--	- Monitoring & logging
 					- Moving on: IaC	-->
 			<section id="conclusions">
 				<img src="img/so_much.png" alt="so much to learn">
