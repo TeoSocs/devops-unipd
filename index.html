@@ -19,7 +19,10 @@
 	<div class="reveal">
 		<div class="slides">
 			<section id="introduction">
-				<section>TITOLO</section>
+				<section>
+					<h1>Devops 101</h1>
+					<a href="teosocs.github.io/devops-unipd">teosocs.github.io/devops-unipd</a>
+				</section>
 				<section>Chi sono</section>
 				<section data-markdown="">
 					<script type="text/template">
@@ -305,6 +308,17 @@
 				<section>
 					<img src="img/k8s_6.png" alt="struttura di kubernetes - 6">
 				</section>
+				<section data-markdown="">
+					<script type="text/template">
+						### Con Kubernetes ho
+
+						- Update: posso effettuare aggiornamenti "a caldo"
+						- High Availability: N repliche, ogni componente distribuita
+						- Capacità di self healing
+						- RBAC maturo: gestione fine di ruoli e permessi per ogni azione
+							- Potenziato dalle soluzioni "proprietarie" come Rancher, OpenShift, GKE, etc.
+					</script>
+				</section>
 				<section>
 					<h3>Tirando le fila</h3>
 					<ul>
@@ -341,13 +355,81 @@
 							</ul>
 							Meglio applicazioni stateless
 						</li>
-						<li>Interfacce: ogni componente è di fatto un'applicazione a sè</li>
+						<li>Interfacce: ogni componente è di fatto un'applicazione a sé</li>
 						<li>Monitoraggio, debug e logging complicati</li>
 					</ul>
 				</section>
 			</section>
-			<!--	- Monitoring & logging
-					- Moving on: IaC	-->
+			<section id="monitoring e logging">
+				<section>
+					<h3>Problema</h3>
+					<p>La mia applicazione non sta funzionando a dovere. Cos'è andato storto?</p>
+				</section>
+				<section>
+					<h3>Architettura a microservizi</h3>
+					<img src="img/microservice_architecture.png" alt="esempio di architettura a microservizi">
+					<p>Già sembra complicata: considerate di avere più repliche per servizio.</p>
+				</section>
+				<section>
+					<h3>!!!</h3>
+					<img src="img/jaeger_example.webp" alt="perché serve aiuto">
+				</section>
+				<section>
+					<h3>Almeno 2 topic chiave</h3>
+					<ul>
+						<li>Log da centralizzare</li>
+						<li>
+							Monitoring e gestione degli alert
+							<ul>
+								<li>Visibilità dei flussi applicativi</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Logging</h3>
+					<img src="img/elk.png" alt="stack ELK">
+					<p>Soluzione più diffusa: ELK</p>
+				</section>
+				<section>
+					<h3>Flusso in ELK</h3>
+					<img src="img/elk_schema.png" alt="schema architettura ELK">
+				</section>
+				<section>
+					<h3>Schermata tipo in Kibana</h3>
+					<img src="img/kibana.png" alt="Kibana discover page">
+				</section>
+				<section>
+					<h3>Monitoring & Alert management</h3>
+					<img src="img/monitoring_stack.webp" alt="schema architettura Prometheus e Grafana">
+				</section>
+				<section>
+					<h3>Dashboard in Grafana</h3>
+					<img src="img/grafana.jpg" alt="Grafana dashboard">
+				</section>
+				<section>
+					<h3>Bonus: Jaeger</h3>
+					<img src="img/jaeger_trace_view.png" alt="trace view in Jaeger">
+				</section>
+				<section>
+					<h3>Dependency graph</h3>
+					<img src="img/tracing_graph.gif" alt="tracing graph Jaeger">
+				</section>
+			</section>
+			<section>
+				<h3>Problema</h3>
+				<table>
+					<tr>
+						<td>Dovevo fare a mano i test</td><td><span style="color:green">Automatizzato</span></td>
+					</tr>
+					<tr>
+						<td>Dovevo configurare a mano i servizi</td><td><span style="color:green">Automatizzato</span></td>
+					</tr>
+					<tr>
+						<td>Devo installare a mano i cluster</td><td><span style="color:red">Ma vi pare?</span></td>
+					</tr>
+				</table>
+			</section>
 			<section id="conclusions">
 				<img src="img/so_much.png" alt="so much to learn" style="max-height: 15em">
 			</section>
