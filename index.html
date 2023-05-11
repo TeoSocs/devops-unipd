@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
-	<link rel="stylesheet" href="dist/theme/black.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
 
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -174,25 +174,21 @@
 						<li>Non sono (solo) docker</li>
 					</ul>
 				</section>
-				<section data-markdown="">
-					<script type="text/template">
-						### Esempio di docker run
-						```bash
-						docker run --name pandora_community --rm \
+				<section data-auto-animate>
+					<h3 data-id="code-title">Esempio di Docker run</h3>
+					<pre data-id="code-animation"><code class="hljs bash" data-trim data-line-numbers="|11|6-10|3-5|2"><script type="text/template">
+						docker run --name mycontainername --rm \
+							-v $PWD/data:/data
 							-p 8085:80 \
 							-p 41121:41121 \
 							-p 162:162 \
 							-e DBHOST=mysqlhost.local \
-							-e DBNAME=pandora \
-							-e DBUSER=pandora \
-							-e DBPASS=pandora \
+							-e DBTOKEN=mysecrettoken \
 							-e DBPORT=3306 \
 							-e SLEEP=5 \
 							-e RETRIES=3 \
-							-e INSTANCE_NAME=pandora_community \
-							-ti rameijeiras/pandorafms-community:740
-						```
-					</script>
+							-ti myrepo/myimage:1.2.4
+					</script></code></pre>
 				</section>
 				<section data-auto-animate>
 					<h3 data-id="code-title">Esempio di Dockerfile</h3>
@@ -272,10 +268,12 @@
 					<p>...e qui comincia la lotta per la sopravvivenza</p>
 				</section>
 				<section>
-					<img src="img/compose_swarm.webp" alt="evoluzione verso swarm" style="object-fit:cover; height:10em">
+					<img src="img/compose_swarm.webp" alt="evoluzione verso swarm"
+						style="object-fit:cover; height:10em">
 				</section>
 				<section>
-					<img src="img/swarm_kubernetes.png" alt="fino a kubernetes" style="object-fit:contain; height: 8em;">
+					<img src="img/swarm_kubernetes.png" alt="fino a kubernetes"
+						style="object-fit:contain; height: 8em;">
 				</section>
 				<section>
 					<img src="img/kubernetes_share.png" alt="abbiamo un vincitore">
@@ -283,7 +281,8 @@
 				</section>
 				<section>
 					Link ad un'introduzione completa:
-					<a href="https://dev.to/leandronsp/kubernetes-101-part-i-the-fundamentals-23a1">dev.to/leandronsp/kubernetes-101-part-i-the-fundamentals-23a1</a>
+					<a
+						href="https://dev.to/leandronsp/kubernetes-101-part-i-the-fundamentals-23a1">dev.to/leandronsp/kubernetes-101-part-i-the-fundamentals-23a1</a>
 				</section>
 				<section>
 					<img src="img/k8s_1.png" alt="struttura di kubernetes - 1">
@@ -302,6 +301,46 @@
 				</section>
 				<section>
 					<img src="img/k8s_6.png" alt="struttura di kubernetes - 6">
+				</section>
+				<section>
+					<h3>Tirando le fila</h3>
+					<ul>
+						<li>Estremamente potente</li>
+						<li>Estremamente complicato</li>
+						<li>Qualitativamente allo stato dell'arte</li>
+						<li>Estremamente complicato (sì, due volte)</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Applicazioni fortemente distribuite: Pro</h3>
+					<ul>
+						<li>Componenti "piccole" più semplici</li>
+						<li>
+							Componenti indipendenti in termini di:
+							<ul>
+								<li>Rilasci</li>
+								<li>Scalabilità</li>
+								<li>Tecnologia</li>
+								<li>Risorse particolari</li>
+								<li>Distribuzione geografica</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Applicazioni fortemente distribuite: Contro</h3>
+					<ul>
+						<li>
+							La persistenza è un problema
+							<ul>
+								<li>In termini di sessione</li>
+								<li>In termini di storage</li>
+							</ul>
+							Meglio applicazioni stateless
+						</li>
+						<li>Interfacce: ogni componente è di fatto un'applicazione a sè</li>
+						<li>Monitoraggio, debug e logging complicati</li>
+					</ul>
 				</section>
 			</section>
 			<!--	- Monitoring & logging
@@ -322,6 +361,8 @@
 		// - https://revealjs.com/config/
 		Reveal.initialize({
 			hash: true,
+
+			slideNumber: 'c/t',
 
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
