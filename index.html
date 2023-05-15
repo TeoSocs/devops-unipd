@@ -67,7 +67,7 @@
 						- Containerization
 						- Container orchestration
 						- Monitoring & logging
-						- Moving on: IaC
+						- Moving on: IaC, Service mesh
 					</script>
 				</section>
 			</section>
@@ -83,10 +83,10 @@
 				<section>
 					<h4>Alcuni metodi sono migliori di altri</h4>
 					<img src="img/best_ways_to_save_your_code.webp" alt="best ways to save your code"
-						style="height:14em">
+					class="r-stretch">
 				</section>
 				<section>
-					<img src="img/git_branches.png" alt="git branches collaboration">
+					<img src="img/git_branches.png" alt="git branches collaboration" >
 					<ul>
 						<li>Il codice è salvato in formato analizzabile</li>
 						<li>Si può ricostruire la storia completa del codice</li>
@@ -96,14 +96,14 @@
 				<section>
 					<p>...relativamente...</p>
 					<img src="img/useless_code.jpeg" alt="when you delete a useless block of code"
-						style="max-height:13em">
+					class="r-stretch">
 				</section>
 				<section>
-					<p>Magari il codice compila, ma siamo davvero sicuri di ciò che fa a runtime?</p>
+					<p class="r-fit-text">Magari il codice compila, ma siamo <br> davvero sicuri di ciò che fa a runtime?</p>
 				</section>
 				<section>
 					<p>...SICURI?</p>
-					<img src="img/developer_hanging.jpg" alt="thank you stackoverflow" style="max-height:13em">
+					<img src="img/developer_hanging.jpg" alt="thank you stackoverflow" class="r-stretch">
 				</section>
 				<section>
 					<div class="row" style="display:flex">
@@ -307,7 +307,7 @@
 						style="object-fit:contain; height: 8em;">
 				</section>
 				<section>
-					<img src="img/kubernetes_share.png" alt="abbiamo un vincitore">
+					<img src="img/kubernetes_share.png" alt="abbiamo un vincitore" class="r-stretch">
 					<p>...in realtà abbiamo un vincitore abbastanza chiaro. (2021)<br>
 				</section>
 				<section>
@@ -319,7 +319,7 @@
 					<img src="img/k8s_1.png" alt="struttura di kubernetes - 1">
 				</section>
 				<section>
-					<img src="img/k8s_2.jpg" alt="struttura di kubernetes - 2" style="max-height: 13em;">
+					<img src="img/k8s_2.jpg" alt="struttura di kubernetes - 2" class="r-stretch">
 				</section>
 				<section>
 					<img src="img/k8s_3.png" alt="struttura di kubernetes - 3">
@@ -335,7 +335,7 @@
 				</section>
 				<section data-markdown="">
 					<script type="text/template">
-						### Con Kubernetes ho
+						### Perché Kubernetes
 
 						- Update: posso effettuare aggiornamenti "a caldo"
 						- High Availability: N repliche, ogni componente distribuita
@@ -343,6 +343,12 @@
 						- RBAC maturo: gestione fine di ruoli e permessi per ogni azione
 							- Potenziato dalle soluzioni "proprietarie" come Rancher, OpenShift, GKE, etc.
 					</script>
+				</section>
+				<section>
+					<h3>Dichiarativo e "as code"</h3>
+					...quindi posso impostare flussi di CI/CD!
+					<img src="img/argocd.gif" alt="gitOps">
+					Contrazioni sempre di moda: si parla di GitOps
 				</section>
 				<section>
 					<h3>Tirando le fila</h3>
@@ -441,22 +447,69 @@
 					<img src="img/tracing_graph.gif" alt="tracing graph Jaeger">
 				</section>
 			</section>
-			<section>
-				<h3>Problema</h3>
-				<table>
-					<tr>
-						<td>Dovevo fare a mano i test</td><td><span style="color:green">Automatizzato</span></td>
-					</tr>
-					<tr>
-						<td>Dovevo configurare a mano i servizi</td><td><span style="color:green">Automatizzato</span></td>
-					</tr>
-					<tr>
-						<td>Devo installare a mano i cluster</td><td><span style="color:red">Ma vi pare?</span></td>
-					</tr>
-				</table>
+			<section id="moving on">
+				<section>
+					<h3>Problema</h3>
+					<table>
+						<tr>
+							<td>Dovevo fare a mano i test</td><td><span style="color:green">Automatizzato</span></td>
+						</tr>
+						<tr>
+							<td>Dovevo configurare a mano i servizi</td><td><span style="color:green">Automatizzato</span></td>
+						</tr>
+						<tr>
+							<td>Devo installare a mano i cluster</td><td><span style="color:red">Ma vi pare?</span></td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3><u>Everything</u> as code</h3>
+					<h4>"Cluster" as Code</h4>
+					<ul>
+						<li>Tutto il cluster (incluso il control plane) strutturato a container</li>
+						<li>Funzionalità particolari svolte da "operator"</li>
+					</ul>
+				</section>
+				<section>
+					<h3><u>Everything</u> as code</h3>
+					<h4>Infrastructure as Code</h4>
+					<ul>
+						<li>"Solito" approccio dichiarativo</li>
+						<li>"Soliti" file di configurazione</li>
+						<li>"Solita" natura stateless</li>
+						<li>"Soliti" benefici</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Strumenti per IaC</h4>
+					<img src="img/iac.png" alt="tools per iac">
+				</section>
+				<section>
+					<h3><u>Everything</u> as code</h3>
+					<h4>Network as Code</h4>
+					<ul>
+						<li>Service Mesh</li>
+						<li>Cloud Native Network</li>
+					</ul>
+				</section>
+				<section>
+					<h4>Esempio di Service Mesh</h4>
+					<img src="img/service_mesh.png" alt="linkerd service mesh" class="r-stretch">
+				</section>
 			</section>
 			<section id="conclusions">
-				<img src="img/so_much.png" alt="so much to learn" style="max-height: 15em">
+				<section>
+					<h3>Insomma: tanto</h3>
+					<img src="img/so_much.png" alt="so much to learn" class="r-stretch">
+					<p>Tanto da studiare, tanto da imparare,<br>tanto da provare, tanto da <u>fare</u>.</p>
+				</section>
+				<section>
+					<h3>Si cerca sempre compagnia</h3>
+					<ul>
+						<li><a href="https://www.infocamere.it/lavora-con-noi">infocamere.it/lavora-con-noi</a></li>
+						<li><a href="mailto:matteo.sovilla@infocamere.it">matteo.sovilla@infocamere.it</a></li>
+					</ul>
+				</section>
 			</section>
 		</div>
 	</div>
