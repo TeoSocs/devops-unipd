@@ -26,14 +26,14 @@
 				<section>
 					<h3>Chi sono</h3>
 					<div class="row" style="display:flex">
-						<img src="img/ic.png" alt="logo InfoCamere"
-							style="object-fit:contain;max-width:30%;">
+						<img src="img/ic.png" alt="logo InfoCamere" style="object-fit:contain;max-width:30%;">
 						<div style="text-align:left;">
 							<p>
 								Sono Matteo Sovilla, lavoro in InfoCamere da 7 anni.
 							</p>
 							<p>
-								InfoCamere è la società consortile delle Camere di commercio e fornisce servizi a favore di imprenditori, professionisti e cittadini.
+								InfoCamere è la società consortile delle Camere di commercio e fornisce servizi a favore
+								di imprenditori, professionisti e cittadini.
 							</p>
 						</div>
 					</div>
@@ -44,7 +44,8 @@
 						Capirete abbastanza bene di cosa mi occupo<br>durante questa presentazione
 					</p>
 					<p>
-						Per qualsiasi dubbio scrivetemi a <a href="matteo.sovilla@infocamere.it">matteo.sovilla@infocamere.it</a>
+						Per qualsiasi dubbio scrivetemi a <a
+							href="matteo.sovilla@infocamere.it">matteo.sovilla@infocamere.it</a>
 					</p>
 				</section>
 				<section data-markdown="">
@@ -82,11 +83,10 @@
 				</section>
 				<section>
 					<h4>Alcuni metodi sono migliori di altri</h4>
-					<img src="img/best_ways_to_save_your_code.webp" alt="best ways to save your code"
-					class="r-stretch">
+					<img src="img/best_ways_to_save_your_code.webp" alt="best ways to save your code" class="r-stretch">
 				</section>
 				<section>
-					<img src="img/git_branches.png" alt="git branches collaboration" >
+					<img src="img/git_branches.png" alt="git branches collaboration">
 					<ul>
 						<li>Il codice è salvato in formato analizzabile</li>
 						<li>Si può ricostruire la storia completa del codice</li>
@@ -95,11 +95,11 @@
 				</section>
 				<section>
 					<p>...relativamente...</p>
-					<img src="img/useless_code.jpeg" alt="when you delete a useless block of code"
-					class="r-stretch">
+					<img src="img/useless_code.jpeg" alt="when you delete a useless block of code" class="r-stretch">
 				</section>
 				<section>
-					<p class="r-fit-text">Magari il codice compila, ma siamo <br> davvero sicuri di ciò che fa a runtime?</p>
+					<p class="r-fit-text">Magari il codice compila, ma siamo <br> davvero sicuri di ciò che fa a
+						runtime?</p>
 				</section>
 				<section>
 					<p>...SICURI?</p>
@@ -459,13 +459,16 @@
 					<h3>Problema</h3>
 					<table>
 						<tr>
-							<td>Dovevo fare a mano i test</td><td><span style="color:green">Automatizzato</span></td>
+							<td>Dovevo fare a mano i test</td>
+							<td><span style="color:green">Automatizzato</span></td>
 						</tr>
 						<tr>
-							<td>Dovevo configurare a mano i servizi</td><td><span style="color:green">Automatizzato</span></td>
+							<td>Dovevo configurare a mano i servizi</td>
+							<td><span style="color:green">Automatizzato</span></td>
 						</tr>
 						<tr>
-							<td>Devo installare a mano i cluster</td><td><span style="color:red">Ma vi pare?</span></td>
+							<td>Devo installare a mano i cluster</td>
+							<td><span style="color:red">Ma vi pare?</span></td>
 						</tr>
 					</table>
 				</section>
@@ -502,6 +505,84 @@
 				<section>
 					<h4>Esempio di Service Mesh</h4>
 					<img src="img/service_mesh.png" alt="linkerd service mesh" class="r-stretch">
+				</section>
+			</section>
+			<section id="cloud">
+				<section>
+					<h3>Effetto collaterale (piacevole)</h3>
+					<p>Siamo sempre più "distanti" dai server sottostanti</p>
+				</section>
+				<section>
+					<h3>(C'era un) Problema</h3>
+					<p>In caso di carichi di lavoro variabili come "scalo"?</p>
+					<ul>
+						<li>
+							Verticalmente
+							<ul>
+								<li>Aggiungo RAM/CPU ai server che già ho</li>
+								<li>Faccio direttamente server più grossi</li>
+							</ul>
+						</li>
+						<li>
+							Orizzontalmente
+							<ul>
+								<li>Metto in esecuzione molti server uguali</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h3>(C'era un) Problema</h3>
+					<p>In ogni caso devo comprare del "ferro":</p>
+					<ul>
+						<li>Potrebbe servirmi molto in fretta</li>
+						<li>Potrebbe non servirmi più a breve</li>
+					</ul>
+				</section>
+				<section>
+					<h3>La soluzione</h3>
+					<a href="https://imgflip.com/i/9ugj69"><img src="https://i.imgflip.com/9ugj69.jpg"
+							title="made at imgflip.com" /></a>
+				</section>
+				<section>
+					<h3>Perché è bello</h3>
+					<ul>
+						<li>Quasi annullato il problema dell'hardware</li>
+						<li>Abbondanza di servizi gestiti</li>
+						<li>Elevatissima standardizzazione</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Perché è brutto</h3>
+					<ul>
+						<li>
+							...da qualche parte devono pur guadagnarci
+							<ul>
+								<li>Rischi ENORMI sui costi</li>
+							</ul>
+						</li>
+						<li>Rischio di vendor lock-in</li>
+						<li>Temi da smarcare sulla riservatezza dei dati</li>
+						<li>Difficile da padroneggiare</li>
+					</ul>
+				</section>
+				<section>
+					<h3>Meglio in cloud?</h3>
+					Dipende:
+					<table>
+						<tr>
+							<td>Azienda senza "ferro"</td>
+							<td><span style="color:blue">Cloud</span></td>
+						</tr>
+						<tr>
+							<td>Frontend</td>
+							<td><span style="color:blue">~Cloud</span></td>
+						</tr>
+						<tr>
+							<td>Backend e storage</td>
+							<td><span style="color:green">~No cloud</span></td>
+						</tr>
+					</table>
 				</section>
 			</section>
 			<section id="conclusions">
